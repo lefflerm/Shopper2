@@ -166,6 +166,7 @@
             android:layout_height="wrap_content"
             android:text="@string/finish"
             android:id="@+id/finishButton"
-            android:layout_column="2" />
+            android:layout_column="2"
+            android:onClick="createList" />
     </TableRow>
 </TableLayout>

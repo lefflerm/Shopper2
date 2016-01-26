@@ -94,7 +94,21 @@ public class CreateList extends AppCompatActivity {
             Toast.makeText(this, "Shopping List Created!", Toast.LENGTH_LONG).show();
         }
 
+
+
     }
+
+    public void createList(View v) {
+        String name = nameEditText.getText().toString();
+        String store = storeEditText.getText().toString();
+        String date = dateEditText.getText().toString();
+
+        if(name.trim().equals("") || store.trim().equals("") || date.trim().equals("")){
+            Toast.makeText(this, "Please enter a name, store and date!", Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(this, "Shopping List Created!", Toast.LENGTH_LONG).show();
+        }}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
