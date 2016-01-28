@@ -29,6 +29,7 @@ public class CreateList extends AppCompatActivity {
     EditText dateEditText;
     EditText storeEditText;
     Calendar calendar;
+    DBHandler dbHandler;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -71,10 +72,11 @@ public class CreateList extends AppCompatActivity {
             }
         });
 
-
+        dbHandler = new DBHandler(this, null);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
     }
 
     public void updateDueDate(){
@@ -91,10 +93,9 @@ public class CreateList extends AppCompatActivity {
             Toast.makeText(this, "Please enter a name, store and date!", Toast.LENGTH_LONG).show();
         }
         else{
+            dbHandler.addShoppingList(name, store, date);
             Toast.makeText(this, "Shopping List Created!", Toast.LENGTH_LONG).show();
         }
-
-
 
     }
 
@@ -107,6 +108,7 @@ public class CreateList extends AppCompatActivity {
             Toast.makeText(this, "Please enter a name, store and date!", Toast.LENGTH_LONG).show();
         }
         else{
+            dbHandler.addShoppingList(name, store, date);
             Toast.makeText(this, "Shopping List Created!", Toast.LENGTH_LONG).show();
         }}
 
