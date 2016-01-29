@@ -43,7 +43,7 @@ public class DBHandler extends SQLiteOpenHelper{
         ContentValues values = new ContentValues();
 
         values.put(COLUMN_LIST_NAME, name);
-        values.put(COLUMN_LIST_NAME, store);
+        values.put(COLUMN_LIST_STORE, store);
         values.put(COLUMN_LIST_DATE, date);
         SQLiteDatabase db = getWritableDatabase();
 
