@@ -99,7 +99,7 @@ public class CreateList extends AppCompatActivity {
 
     }
 
-    public void createList(View v) {
+    public void createList(View view) {
         String name = nameEditText.getText().toString();
         String store = storeEditText.getText().toString();
         String date = dateEditText.getText().toString();

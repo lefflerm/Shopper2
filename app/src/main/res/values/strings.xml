@@ -7,4 +7,8 @@
     <string name="store">Store</string>
     <string name="date">Date</string>
     <string name="finish">Add List</string>
+    <string name="title_activity_view_list">View List</string>
+    <string name="delete_list">Delete Shopping List</string>
+    <string name="add_item">Add Item</string>
+    <string name="title_activity_add_item">Add Item</string>
 </resources>

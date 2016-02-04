@@ -1,13 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.administrator.shopper2.CreateList">
+    tools:context="com.example.administrator.shopper2.AddItem">
     <item
-        android:id="@+id/add_list"
+        android:id="@+id/add_item"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="Create Shopping List"
+        android:title="@string/add_item"
         android:orderInCategory="3"
-        android:onClick="createList"
+        android:onClick="addItem"
         app:showAsAction="always"
         />
     <item

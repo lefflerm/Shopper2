@@ -9,9 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
     Intent intent;
+    DBHandler dbHandler;
+    ShoppingLists shoppingListsAdapter;
+    ListView shopperListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +25,19 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        dbHandler = new DBHandler(this, null);
+        shopperListView = (ListView) findViewById(R.id.shopperListView);
+        shoppingListsAdapter = new ShoppingLists(this, dbHandler.getShoppingLists(), 0);
 
+        shopperListView.setAdapter(shoppingListsAdapter);
+        shopperListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                intent = new Intent(MainActivity.this, ViewList.class);
+                intent.putExtra("_id", id);
+                startActivity(intent);
+            }
+        });
     }
 
     public void openCreateList (View view){
@@ -50,4 +67,6 @@ public class MainActivity extends AppCompatActivity {
                return super.onOptionsItemSelected(item);
        }
     }
+
+
 }
