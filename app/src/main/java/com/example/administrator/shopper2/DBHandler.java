@@ -110,4 +110,32 @@ public class DBHandler extends SQLiteOpenHelper{
         return dbString;
     }
 
+    public Cursor getShoppingListItems(Integer lid){
+        SQLiteDatabase db = getWritableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_SHOPPING_LIST_ITEM + " WHERE " + COLUMN_ITEM_LIST_ID + " = " + lid, null);
+    }
+
+    public String getShoppingListTotalCost(int lid){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query =  "SELECT * FROM " + TABLE_SHOPPING_LIST_ITEM + " WHERE " + COLUMN_ITEM_LIST_ID + " = " + lid;
+        Cursor c = db.rawQuery(query, null);
+        Double totalCost = 0.0;
+        int numShoppingListItems = c.getCount();
+        if(numShoppingListItems >= 1){
+            c.moveToFirst();
+            while(!c.isAfterLast()){
+                totalCost += (c.getDouble(c.getColumnIndex("item_price")) * (c.getInt(c.getColumnIndex("item_quantity"))));
+                c.moveToNext();
+            }
+        }
+
+        dbString = String.valueOf(totalCost);
+        db.close();
+        return dbString;
+    }
+
+
+
+
 }
