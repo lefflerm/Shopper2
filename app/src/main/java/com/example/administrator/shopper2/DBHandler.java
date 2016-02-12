@@ -34,7 +34,15 @@ public class DBHandler extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + TABLE_SHOPPING_LIST_ITEM + "(" +
+
+        String query = "CREATE TABLE " + TABLE_SHOPPING_LIST + "(" +
+                COLUMN_LIST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                COLUMN_LIST_NAME + " TEXT," +
+                COLUMN_LIST_STORE + " TEXT," +
+                COLUMN_LIST_DATE + " TEXT" +
+                ");";
+        db.execSQL(query);
+        String query2 = "CREATE TABLE " + TABLE_SHOPPING_LIST_ITEM + "(" +
                 COLUMN_ITEM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_ITEM_NAME + " TEXT," +
                 COLUMN_ITEM_PRICE + " DECIMAL(10,2)," +
@@ -42,15 +50,9 @@ public class DBHandler extends SQLiteOpenHelper{
                 COLUMN_ITEM_HAS + " TEXT," +
                 COLUMN_ITEM_LIST_ID + " INTEGER" +
                 ");";
-        db.execSQL(query);
-
-        String query2 = "CREATE TABLE " + TABLE_SHOPPING_LIST + "(" +
-                COLUMN_LIST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                COLUMN_LIST_NAME + " TEXT," +
-                COLUMN_LIST_STORE + " TEXT," +
-                COLUMN_LIST_DATE + " TEXT" +
-                ");";
         db.execSQL(query2);
+
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
