@@ -137,6 +137,38 @@ public class DBHandler extends SQLiteOpenHelper{
         return dbString;
     }
 
+    public int isItemPurchased(Integer itemId){
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_SHOPPING_LIST_ITEM +
+                " WHERE " + COLUMN_ITEM_HAS + " = \"false\" " +
+                " AND " + COLUMN_LIST_ID + " = " +  itemId;
+
+        Cursor c = db.rawQuery(query, null);
+
+        return (c.getCount());
+    }
+
+    public void updateItem(Integer itemId){
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "UPDATE " + TABLE_SHOPPING_LIST_ITEM + " SET " +
+                COLUMN_ITEM_HAS + " = \"true\" " + " WHERE " +
+                COLUMN_ITEM_ID + " = " + itemId;
+
+        db.execSQL(query);
+
+        db.close();
+    }
+
+    public int getUnpurchasedItems(Integer listId){
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_SHOPPING_LIST_ITEM +
+                " WHERE " + COLUMN_ITEM_HAS + " = \"false\" " +
+                " AND " + COLUMN_ITEM_LIST_ID + " = " + listId;
+
+        Cursor c = db.rawQuery(query, null);
+        return (c.getCount());
+    }
+
 
 
 
