@@ -55,6 +55,9 @@ public class ViewList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 updateItem(id);
+                intent = new Intent(ViewList.this, ViewItem.class);
+                intent.putExtra("_id", id);
+                startActivity(intent);
             }
         });
     }
@@ -122,7 +125,6 @@ public class ViewList extends AppCompatActivity {
             notificationManager.notify(2142, builder.build());
 
 
-            //Toast.makeText(this, "List Complete!", Toast.LENGTH_LONG).show();
 
         }
     }

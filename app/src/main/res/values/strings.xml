@@ -13,4 +13,6 @@
     <string name="title_activity_add_item">Add Item</string>
     <string name="price">Price</string>
     <string name="quantity">Quantity</string>
+    <string name="title_activity_view_item">View Item</string>
+    <string name="delete_list_item">Delete Shopping List Item</string>
 </resources>

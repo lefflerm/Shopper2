@@ -1,13 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.administrator.shopper2.ViewList">
+    tools:context="com.example.administrator.shopper2.ViewItem">
     <item
         android:id="@+id/delete_list"
         android:icon="@android:drawable/ic_menu_delete"
-        android:title="@string/delete_list"
+        android:title="@string/delete_list_item"
         android:orderInCategory="4"
-        android:onClick="deleteShoppingList"
+        android:onClick="deleteShoppingListItem"
         app:showAsAction="always"
         />
     <item
