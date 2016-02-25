@@ -69,7 +69,8 @@ public class ViewList extends AppCompatActivity {
     }
 
     public void deleteShoppingList(MenuItem menuItem){
-
+        dbHandler.deleteShoppingList((int) id);
+        Toast.makeText(this, "Shopping List Deleted!", Toast.LENGTH_LONG).show();
     }
 
     @Override

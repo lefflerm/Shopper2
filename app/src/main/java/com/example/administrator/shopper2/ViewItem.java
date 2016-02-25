@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ViewItem extends AppCompatActivity {
     Intent intent;
@@ -73,6 +74,8 @@ public class ViewItem extends AppCompatActivity {
 
     public void deleteShoppingListItem(MenuItem menuItem){
 
+        dbHandler.deleteShoppingListItem((int) id);
+        Toast.makeText(this, "Item Deleted!", Toast.LENGTH_LONG).show();
     }
 
 }
