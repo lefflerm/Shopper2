@@ -108,7 +108,7 @@ public class ViewList extends AppCompatActivity {
         }
         //I called my id something else so I didn't need to do the this but I did anyway
         if(dbHandler.getUnpurchasedItems((int) this.id) == 0){
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+           NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
             builder.setSmallIcon(R.mipmap.ic_launcher);
             builder.setContentTitle("Shopper");
             builder.setContentText(shoppingListName + " completed!");
@@ -124,8 +124,6 @@ public class ViewList extends AppCompatActivity {
                     getSystemService(NOTIFICATION_SERVICE);
 
             notificationManager.notify(2142, builder.build());
-
-
 
         }
     }

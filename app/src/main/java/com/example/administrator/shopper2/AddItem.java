@@ -37,6 +37,13 @@ public class AddItem extends AppCompatActivity {
 
         dbHandler = new DBHandler(this, null);
 
+        //extra code i'm hoping will work
+        Intent intent2 = new Intent(); //this is the new intent just to broadcast
+        intent2.setAction("MirEvilShopping"); //action for that new intent
+        intent2.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);//this will let it open applications that are closed
+        sendBroadcast(intent2); //sending the actual broadcast
+
+
 
     }
 
@@ -49,8 +56,10 @@ public class AddItem extends AppCompatActivity {
             Toast.makeText(this, "Please enter a name, price and quantity!", Toast.LENGTH_LONG).show();
         }
         else{
-            dbHandler.addItemToList(name, Double.parseDouble(price), Integer.parseInt(quantity),(int) id);
+            dbHandler.addItemToList(name, Double.parseDouble(price), Integer.parseInt(quantity), (int) id);
             Toast.makeText(this, "Item Added!", Toast.LENGTH_LONG).show();
+
+
         }
     }
 
